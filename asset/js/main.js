@@ -25,16 +25,20 @@ var app = new Vue(
 
                 // condizione per non far aggiungere stringhe vuote
                 if (this.newTask.trim() != '') {
-                    
                     this.todos.push({
                         text: this.newTask,
                         done: false,
+                        id: this.id + 1,
                     });
-                    // console.log(this.todos)    
+                    
+                    console.log(this.todos)  
+                    
+                    // ogni oggetto ha un proprio id che aumenta di 1 ogni volta che viene pushato un nuovo oggetto
+                    this.id++;
+                    // ogni volta che si aggiunge un elemento il campo input si resetta
+                    this.newTask = '';
                 }
                 
-                // ogni volta che si aggiunge un elemento il campo input si resetta
-                this.newTask = '';
             },
 
             // funzione per rimuovere un elemento dalla lista
@@ -44,3 +48,4 @@ var app = new Vue(
         }
     }
 )
+
