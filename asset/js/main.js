@@ -7,17 +7,20 @@ var app = new Vue(
             todos: [],
 
             newTask: '',
-            id: 0,
+            id: 1,
         },
 
         methods: {
             // funzione per modificare al click il valore di DONE (toggle non funziona?)
             doneToDo: function(element) {
-                if( element.done == true ){
-                    element.done = false;
-                } else {
-                    element.done = true;
-                }
+                // più sintetica per il toggle
+                element.done = !element.done;
+
+                // if( element.done == true ){
+                //     element.done = false;
+                // } else {
+                //     element.done = true;
+                // }
             },
 
             // funzione per aggiungere un nuovo elemento alla lista
@@ -28,7 +31,7 @@ var app = new Vue(
                     this.todos.push({
                         text: this.newTask,
                         done: false,
-                        id: this.id + 1,
+                        id: this.id,
                     });
                     
                     console.log(this.todos)  
